@@ -1,6 +1,6 @@
 |                               |                               |
 |:-----------------------------:|:-----------------------------:|
-| <a target="_blank" href="https://reactnative.dev/">  <img src="https://reactnative.dev/img/header_logo.svg" width="180" alt="React Native Logo"></a> | <a target="blank"  href="https://docs.expo.dev/"> <img src="" width="180" alt="Expo Logo"></a> |
+| <a target="_blank" href="https://reactnative.dev/">  <img src="https://reactnative.dev/img/header_logo.svg" width="180" alt="React Native Logo"></a> | <a target="blank"  href="https://docs.expo.dev/"> <img src="../imagenes/expogo_logo.webp" width="180" alt="Expo Logo"></a> |
 | [Docs React Native](https://reactnative.dev/) | [Docs Expo](https://docs.expo.dev/) |
 
 
