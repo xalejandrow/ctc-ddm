@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View, Image } from 'react-native';
 import { useState } from 'react';
 
 import MyButton from './components/myButton';
@@ -23,6 +23,12 @@ export default function App() {
       </Pressable>
 
       <Text style={styles.textHuge}>{count}</Text>
+      <Image 
+        source={require('./assets/favicon.png')} style={styles.image} 
+      />
+      <Image
+        source={{uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgyd4r1xhVE_qa-CXbxc98wTm1-baiPOkQztWcGoYTRQ&s=10'}} style={styles.image} 
+      />
 
       <MyButton 
         label='+1 / Reset'
@@ -66,4 +72,8 @@ const styles = StyleSheet.create({
     fontSize: 80,
     fontWeight: '100',
   },
+  image: { 
+    width: 100, 
+    height: 100 
+  }
 });
