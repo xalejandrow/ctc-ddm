@@ -1,8 +1,9 @@
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Pressable, StyleSheet, Text, View, Image } from 'react-native';
 import { useState } from 'react';
 
-import MyButton from './components/myButton';
+import MyButton from './components/MyButton';
 
 export default function App() {
 

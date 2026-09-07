@@ -9,3 +9,11 @@ Este es un repositorio de ejemplos y documentación para el curso de Desarrollo 
 ## Ejecutar el proyecto
 
 - npx expo start
+
+## Actualizar Expo Go
+En caso de que Expo Go se actualice en el celular, deberemos actualizar nuestro proyecto con los siguientes comandos
+
+- npm install expo@^57.0.0
+- npx expo install --fix
+- npx expo-doctor@latest
+- npx expo start --clear
