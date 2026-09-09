@@ -3,9 +3,7 @@ import { View, Text, StyleSheet, Pressable } from 'react-native'
 
 interface Props {
   label?: string;
-  position?: 'left' | 'right';
-
-  //Metodos
+position?: 'left' | 'right' | 'center';  //Metodos
   onPress?: () => void;
   onLongPress?: () => void;
 
@@ -20,7 +18,12 @@ export default function MyButton({
   return (
    <Pressable
     style={( pressed ) =>[
-        styles.floatingButton, position === 'right' ? styles.positionRight : styles.positionLeft,
+        styles.floatingButton,
+        position === 'right'
+          ? styles.positionRight
+          : position === 'left'
+            ? styles.positionLeft
+            : styles.positionCenter,
         pressed ? { opacity: 0.7 } : { opacity: 1 },
     ]}
     onPress={onPress}
@@ -53,4 +56,8 @@ const styles = StyleSheet.create({
   positionLeft: {
     left: 20,
   },
+  positionCenter: {
+    alignSelf: 'center',
+  },
+  
 });

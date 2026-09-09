@@ -12,7 +12,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>
-        Hola Mundo
+        Hola Mundo - CTC
       </Text>
       <Text>Primera prueba de Aplicación en React Native!</Text>
       <Pressable style={styles.button}
@@ -22,6 +22,19 @@ export default function App() {
       >
         <Text>Presionar botón</Text>
       </Pressable>
+      {/* <Pressable style={styles.button}
+        // onPress={() => alert('Esto es una prueba de Botón!')}
+        onPress={() => setCount(count - 1)}
+        // onLongPress={() => setCount(0)}
+      >
+        <Text>decrementar contador</Text>
+      </Pressable> */}
+      <MyButton 
+        label='Reset'
+        position='center'
+        onPress={() => setCount(0)}
+        // onLongPress={() => setCount(0)}
+      />
 
       <Text style={styles.textHuge}>{count}</Text>
       <Image 
@@ -31,15 +44,16 @@ export default function App() {
         source={{uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgyd4r1xhVE_qa-CXbxc98wTm1-baiPOkQztWcGoYTRQ&s=10'}} style={styles.image} 
       />
 
-      <MyButton 
+       <MyButton 
         label='+1 / Reset'
-        // position='left'
+        position='right'
         // onPress={() => alert('Botón Flotante Presionado!')}
         // onLongPress={() => alert('Botón Flotante Presionado por mucho tiempo!')}
         onPress={() => setCount(count + 1)}
         onLongPress={() => setCount(0)}
       />
-      <MyButton 
+     
+     <MyButton 
         label='-1'
         position='left'
         onPress={() => setCount(count - 1)}
