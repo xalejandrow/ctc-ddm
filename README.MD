@@ -11,7 +11,10 @@ Este es un repositorio de ejemplos y documentación para el curso de Desarrollo 
 - npx expo start
 
 ## Actualizar Expo Go
-En caso de que Expo Go se actualice en el celular, deberemos actualizar nuestro proyecto con los siguientes comandos
+En caso de que Expo Go se actualice en el celular, deberemos 
+borrar la carpeta node_modules y el archivo package-lock.json
+actualizar nuestro proyecto con los siguientes comandos
+
 
 - npm install expo@^57.0.0
 - npx expo install --fix
