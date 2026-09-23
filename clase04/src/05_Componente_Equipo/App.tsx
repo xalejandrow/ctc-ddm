@@ -41,6 +41,12 @@ export default function App05() {
           ubicacion="Contaduría"
           responsable="Mario López"
         />
+        <TarjetaEquipo
+          codigo="EQ-003"
+          nombre="Switch Cisco 24 puertos"
+          ubicacion="Sala de servidores"
+          responsable="Carlos Rodríguez"
+        />
       </View>
     </SafeAreaView>
   );
@@ -52,8 +58,14 @@ const styles = StyleSheet.create({
   list: { marginTop: 20, gap: 12 },
   card: {
     padding: 18,
+    // borderWidth: 15,
+    // borderColor: "#f10e0e",
     borderLeftWidth: 5,
     borderLeftColor: "#2878B5",
+    // borderRightWidth: 5,
+    // borderRightColor: "#2878B5",
+    // borderTopWidth: 5,
+    // borderTopColor: "#2878B5",
     borderRadius: 15,
     backgroundColor: "#FFFFFF",
   },

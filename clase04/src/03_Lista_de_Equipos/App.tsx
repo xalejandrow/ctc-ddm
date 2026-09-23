@@ -13,6 +13,21 @@ const equipos = [
     nombre: "Switch Cisco 24 puertos",
     ubicacion: "Sala de servidores",
   },
+  {
+    id: "EQ-004",
+    nombre: "Rourter MikroTik RB2011",
+    ubicacion: "Sala de servidores",
+  },
+  {
+    id: "EQ-005",
+    nombre: "Access Point Ubiquiti UniFi",
+    ubicacion: "Sala de servidores",
+  },
+  {
+    id: "EQ-006",
+    nombre: "Access Point Ubiquiti UniFi",
+    ubicacion: "Sala de servidores",
+  },
 ];
 
 export default function App03() {

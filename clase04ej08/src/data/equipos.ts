@@ -61,4 +61,14 @@ export const equipos: Equipo[] = [
     estado: 'En mantenimiento',
     ultimaRevision: '21/08/2026',
   },
+  {
+    id: '7',
+    codigo: 'SIG-SRV-004',
+    nombre: 'Servidor HP ProLiant',
+    tipo: 'Servidor',
+    ubicacion: 'Centro de datos',
+    responsable: 'Nicolás Vega',
+    estado: 'En mantenimiento',
+    ultimaRevision: '21/08/2026',
+  },
 ];

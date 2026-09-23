@@ -33,6 +33,13 @@ const ordenes: Orden[] = [
     prioridad: "Baja",
     estado: "Finalizada",
   },
+  {
+    id: "OT-1040",
+    equipo: "Router Cisco RV340",
+    problema: "Revisión preventiva",
+    prioridad: "Baja",
+    estado: "Finalizada",
+  },
 ];
 
 function Indicador({ valor, etiqueta }: { valor: string; etiqueta: string }) {
@@ -69,6 +76,7 @@ export default function App07() {
         <View style={styles.summary}>
           <Indicador valor="6" etiqueta="Pendientes" />
           <Indicador valor="3" etiqueta="En proceso" />
+          {/* <Indicador valor="2" etiqueta="Finalizadas" /> */}
         </View>
 
         <Text style={styles.section}>Órdenes recientes</Text>

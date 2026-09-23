@@ -22,6 +22,9 @@ export default function App04() {
         <EstadoEquipo texto="Operativo" variante="operativo" />
         <EstadoEquipo texto="En mantenimiento" variante="mantenimiento" />
         <EstadoEquipo texto="Fuera de servicio" variante="fueraServicio" />
+        <EstadoEquipo texto="TEST" variante="fueraServicio" />
+        <EstadoEquipo texto="TEST2" variante="mantenimiento" />
+        <EstadoEquipo texto="En mantenimiento" variante="mantenimiento" />
       </View>
     </SafeAreaView>
   );
