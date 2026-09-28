@@ -1,0 +1,24 @@
+# Dependencies in every project
+node_modules/
+
+# Expo local state and generated output
+.expo/
+dist/
+web-build/
+.metro-health-check*
+expo-env.d.ts
+
+# Local environment files and TypeScript build metadata
+.env
+.env.*
+!.env.example
+*.tsbuildinfo
+
+# Logs and test coverage
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+coverage/
+
+# Operating system files
+.DS_Store

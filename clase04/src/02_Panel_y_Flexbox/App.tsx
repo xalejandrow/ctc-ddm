@@ -20,6 +20,10 @@ export default function App02() {
           <Text style={styles.value}>14</Text>
           <Text style={styles.label}>Mantenimientos finalizados</Text>
         </View>
+        {/* <View style={[styles.card, styles.blue]}>
+          <Text style={styles.value}>14</Text>
+          <Text style={styles.label}>Mantenimientos finalizados</Text>
+        </View> */}
       </View>
     </SafeAreaView>
   );
@@ -36,6 +40,7 @@ const styles = StyleSheet.create({
   },
   title: { marginTop: 7, fontSize: 28, fontWeight: "700", color: "#17324D" },
   cards: { marginTop: 26, gap: 12 },
+  // cards: { marginTop: 26, gap: 12, flexDirection: "row", flexWrap: "wrap" },
   card: {
     minHeight: 110,
     justifyContent: "center",

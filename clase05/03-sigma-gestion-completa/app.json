@@ -1,0 +1,8 @@
+{
+  "expo": {
+    "name": "SIGMA Gestión",
+    "slug": "sigma-gestion-clase-05",
+    "scheme": "sigma",
+    "plugins": ["expo-router"]
+  }
+}

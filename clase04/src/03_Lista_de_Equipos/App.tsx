@@ -23,11 +23,6 @@ const equipos = [
     nombre: "Access Point Ubiquiti UniFi",
     ubicacion: "Sala de servidores",
   },
-  {
-    id: "EQ-006",
-    nombre: "Access Point Ubiquiti UniFi",
-    ubicacion: "Sala de servidores",
-  },
 ];
 
 export default function App03() {

@@ -1,0 +1,9 @@
+{
+  "expo": {
+    "name": "SIGMA navegación",
+    "slug": "sigma-navegacion-clase-05",
+    "scheme": "sigma",
+    "plugins": ["expo-router"],
+    "experiments": { "typedRoutes": true }
+  }
+}
