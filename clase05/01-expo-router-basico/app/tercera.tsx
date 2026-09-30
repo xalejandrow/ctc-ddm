@@ -1,17 +1,13 @@
 import { router } from 'expo-router';
 import { Button, StyleSheet, Text, View } from 'react-native';
 
-export default function SegundaScreen() {
+export default function TerceraScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Segunda pantalla</Text>
+      <Text style={styles.title}>Tercera pantalla</Text>
       <Text style={styles.text}>
         router.push agrega una ruta al historial. router.back vuelve a la anterior.
       </Text>
-      <Button
-        title="Ir a la tercera pantalla"
-        onPress={() => router.push('/tercera')}
-      />
       <Button title="Volver" onPress={() => router.back()} />
     </View>
   );

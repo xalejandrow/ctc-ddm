@@ -1,21 +1,180 @@
-import { useLocalSearchParams } from 'expo-router';
-import { useEffect, useState } from 'react';
-import { Alert, Pressable, ScrollView, StyleSheet, Text } from 'react-native';
-import { Field } from '../../components/Field';
-import { OptionButtons } from '../../components/OptionButtons';
-import { useSigma } from '../../context/SigmaContext';
-import { Task } from '../../types/models';
+import { useLocalSearchParams } from "expo-router";
+import { useEffect, useState } from "react";
+import { Alert, Pressable, ScrollView, StyleSheet, Text } from "react-native";
+import { Field } from "../../components/Field";
+import { OptionButtons } from "../../components/OptionButtons";
+import { useSigma } from "../../context/SigmaContext";
+import { Task } from "../../types/models";
 
 export default function TareaDetalleScreen() {
-  const { id } = useLocalSearchParams<{ id: string }>(); const { tasks, equipment, updateTask } = useSigma(); const item = tasks.find((current) => current.id === id);
-  const [editing, setEditing] = useState(false); const [title, setTitle] = useState(item?.title ?? ''); const [description, setDescription] = useState(item?.description ?? ''); const [equipmentId, setEquipmentId] = useState(item?.equipmentId ?? ''); const [priority, setPriority] = useState<Task['priority']>(item?.priority ?? 'Media'); const [status, setStatus] = useState<Task['status']>(item?.status ?? 'Pendiente');
-  useEffect(() => { if (item) { setTitle(item.title); setDescription(item.description); setEquipmentId(item.equipmentId); setPriority(item.priority); setStatus(item.status); } }, [item]);
-  if (!item) return <ScrollView contentContainerStyle={styles.container}><Text>Tarea no encontrada.</Text></ScrollView>;
+  const { id } = useLocalSearchParams<{ id: string }>();
+  const { tasks, equipment, updateTask } = useSigma();
+  const item = tasks.find((current) => current.id === id);
+  const [editing, setEditing] = useState(false);
+  const [title, setTitle] = useState(item?.title ?? "");
+  const [description, setDescription] = useState(item?.description ?? "");
+  const [equipmentId, setEquipmentId] = useState(item?.equipmentId ?? "");
+  const [priority, setPriority] = useState<Task["priority"]>(
+    item?.priority ?? "Media",
+  );
+  const [status, setStatus] = useState<Task["status"]>(
+    item?.status ?? "Pendiente",
+  );
+  useEffect(() => {
+    if (item) {
+      setTitle(item.title);
+      setDescription(item.description);
+      setEquipmentId(item.equipmentId);
+      setPriority(item.priority);
+      setStatus(item.status);
+    }
+  }, [item]);
+  if (!item)
+    return (
+      <ScrollView contentContainerStyle={styles.container}>
+        <Text>Tarea no encontrada.</Text>
+      </ScrollView>
+    );
   const assigned = equipment.find((current) => current.id === item.equipmentId);
   const itemId = item.id;
-  function save() { if (title.trim().length < 4 || description.trim().length < 10 || !equipmentId) return Alert.alert('Datos incompletos', 'Completá título, descripción y equipo.'); updateTask(itemId, { title: title.trim(), description: description.trim(), equipmentId, priority, status }); setEditing(false); Alert.alert('Cambios guardados', 'La tarea fue actualizada.'); }
-  return <ScrollView contentContainerStyle={styles.container}><Text style={styles.id}>{item.id.toUpperCase()}</Text><Text style={styles.title}>{editing ? 'Editar tarea' : item.title}</Text>
-    {editing ? <><Field label="Título" value={title} onChangeText={setTitle} /><Field label="Descripción" value={description} onChangeText={setDescription} multiline /><Text style={styles.label}>Equipo asignado</Text>{equipment.map((current) => <Pressable key={current.id} onPress={() => setEquipmentId(current.id)} style={[styles.choice, equipmentId === current.id && styles.choiceSelected]}><Text style={[styles.choiceText, equipmentId === current.id && styles.choiceTextSelected]}>{current.code} · {current.name}</Text></Pressable>)}<OptionButtons label="Prioridad" value={priority} onChange={setPriority} options={['Alta', 'Media', 'Baja']} /><OptionButtons label="Estado" value={status} onChange={setStatus} options={['Pendiente', 'En proceso', 'Finalizada']} /><Pressable style={styles.save} onPress={save}><Text style={styles.buttonText}>Guardar cambios</Text></Pressable><Pressable style={styles.cancel} onPress={() => setEditing(false)}><Text style={styles.cancelText}>Cancelar</Text></Pressable></> : <><Text style={styles.label}>Equipo</Text><Text style={styles.value}>{assigned?.name ?? 'Sin asignar'}</Text><Text style={styles.label}>Prioridad</Text><Text style={styles.value}>{item.priority}</Text><Text style={styles.label}>Estado</Text><Text style={styles.value}>{item.status}</Text><Text style={styles.label}>Descripción</Text><Text style={styles.value}>{item.description}</Text><Pressable style={styles.edit} onPress={() => setEditing(true)}><Text style={styles.buttonText}>Editar tarea</Text></Pressable></>}
-  </ScrollView>;
+  function save() {
+    if (
+      title.trim().length < 4 ||
+      description.trim().length < 10 ||
+      !equipmentId
+    )
+      return Alert.alert(
+        "Datos incompletos",
+        "Completá título, descripción y equipo.",
+      );
+    updateTask(itemId, {
+      title: title.trim(),
+      description: description.trim(),
+      equipmentId,
+      priority,
+      status,
+    });
+    setEditing(false);
+    Alert.alert("Cambios guardados", "La tarea fue actualizada.");
+  }
+  return (
+    <ScrollView contentContainerStyle={styles.container}>
+      <Text style={styles.id}>{item.id.toUpperCase()}</Text>
+      <Text style={styles.title}>{editing ? "Editar tarea" : item.title}</Text>
+      {editing ? (
+        <>
+          <Field label="Título" value={title} onChangeText={setTitle} />
+          <Field
+            label="Descripción"
+            value={description}
+            onChangeText={setDescription}
+            multiline
+          />
+          <Text style={styles.label}>Equipo asignado</Text>
+          {equipment.map((current) => (
+            <Pressable
+              key={current.id}
+              onPress={() => setEquipmentId(current.id)}
+              style={[
+                styles.choice,
+                equipmentId === current.id && styles.choiceSelected,
+              ]}
+            >
+              <Text
+                style={[
+                  styles.choiceText,
+                  equipmentId === current.id && styles.choiceTextSelected,
+                ]}
+              >
+                {current.code} · {current.name}
+              </Text>
+            </Pressable>
+          ))}
+          <OptionButtons
+            label="Prioridad"
+            value={priority}
+            onChange={setPriority}
+            options={["Alta", "Media", "Baja"]}
+          />
+          <OptionButtons
+            label="Estado"
+            value={status}
+            onChange={setStatus}
+            options={["Pendiente", "En proceso", "Finalizada"]}
+          />
+          <Pressable style={styles.save} onPress={save}>
+            <Text style={styles.buttonText}>Guardar cambios</Text>
+          </Pressable>
+          <Pressable style={styles.cancel} onPress={() => setEditing(false)}>
+            <Text style={styles.cancelText}>Cancelar</Text>
+          </Pressable>
+        </>
+      ) : (
+        <>
+          <Text style={styles.label}>Equipo</Text>
+          <Text style={styles.value}>{assigned?.name ?? "Sin asignar"}</Text>
+          <Text style={styles.label}>Prioridad</Text>
+          <Text style={styles.value}>{item.priority}</Text>
+          <Text style={styles.label}>Estado</Text>
+          <Text style={styles.value}>{item.status}</Text>
+          <Text style={styles.label}>Descripción</Text>
+          <Text style={styles.value}>{item.description}</Text>
+          <Pressable style={styles.edit} onPress={() => setEditing(true)}>
+            <Text style={styles.buttonText}>Editar tarea</Text>
+          </Pressable>
+        </>
+      )}
+    </ScrollView>
+  );
 }
-const styles = StyleSheet.create({ container: { padding: 24, paddingBottom: 48, flexGrow: 1, backgroundColor: '#FFFFFF' }, id: { color: '#1877B9', fontWeight: '800' }, title: { color: '#102A43', fontSize: 27, fontWeight: '700', marginTop: 5, marginBottom: 20 }, label: { color: '#52606D', fontWeight: '700', fontSize: 14, marginTop: 17, marginBottom: 7 }, value: { color: '#102A43', fontSize: 17, marginTop: 0, lineHeight: 24 }, choice: { borderWidth: 1, borderColor: '#BCCCDC', padding: 11, borderRadius: 9, marginBottom: 8 }, choiceSelected: { borderColor: '#1877B9', backgroundColor: '#E6F4FA' }, choiceText: { color: '#52606D' }, choiceTextSelected: { color: '#102A43', fontWeight: '700' }, edit: { backgroundColor: '#1877B9', borderRadius: 10, padding: 16, alignItems: 'center', marginTop: 34 }, save: { backgroundColor: '#16806A', borderRadius: 10, padding: 16, alignItems: 'center', marginTop: 8 }, cancel: { padding: 15, alignItems: 'center' }, buttonText: { color: '#FFFFFF', fontWeight: '700', fontSize: 16 }, cancelText: { color: '#52606D', fontWeight: '700' } });
+const styles = StyleSheet.create({
+  container: {
+    padding: 24,
+    paddingBottom: 48,
+    flexGrow: 1,
+    backgroundColor: "#FFFFFF",
+  },
+  id: { color: "#1877B9", fontWeight: "800" },
+  title: {
+    color: "#102A43",
+    fontSize: 27,
+    fontWeight: "700",
+    marginTop: 5,
+    marginBottom: 20,
+  },
+  label: {
+    color: "#52606D",
+    fontWeight: "700",
+    fontSize: 14,
+    marginTop: 17,
+    marginBottom: 7,
+  },
+  value: { color: "#102A43", fontSize: 17, marginTop: 0, lineHeight: 24 },
+  choice: {
+    borderWidth: 1,
+    borderColor: "#BCCCDC",
+    padding: 11,
+    borderRadius: 9,
+    marginBottom: 8,
+  },
+  choiceSelected: { borderColor: "#1877B9", backgroundColor: "#E6F4FA" },
+  choiceText: { color: "#52606D" },
+  choiceTextSelected: { color: "#102A43", fontWeight: "700" },
+  edit: {
+    backgroundColor: "#1877B9",
+    borderRadius: 10,
+    padding: 16,
+    alignItems: "center",
+    marginTop: 34,
+  },
+  save: {
+    backgroundColor: "#16806A",
+    borderRadius: 10,
+    padding: 16,
+    alignItems: "center",
+    marginTop: 8,
+  },
+  cancel: { padding: 15, alignItems: "center" },
+  buttonText: { color: "#FFFFFF", fontWeight: "700", fontSize: 16 },
+  cancelText: { color: "#52606D", fontWeight: "700" },
+});

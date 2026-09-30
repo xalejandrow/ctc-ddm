@@ -10,6 +10,10 @@ export default function InicioScreen() {
         title="Ir a la segunda pantalla"
         onPress={() => router.push('/segunda')}
       />
+      <Button
+        title="Ir a la tercera pantalla"
+        onPress={() => router.push('/tercera')}
+      />
     </View>
   );
 }

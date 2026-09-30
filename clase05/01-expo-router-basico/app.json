@@ -1,0 +1,8 @@
+{
+  "expo": {
+    "name": "Expo Router Basico",
+    "slug": "expo-router-basico-clase-05",
+    "scheme": "expobasicorouter",
+    "plugins": ["expo-router"]
+  }
+}

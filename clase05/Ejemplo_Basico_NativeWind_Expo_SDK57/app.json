@@ -1,0 +1,9 @@
+{
+  "expo": {
+    "name": "NativeWind SIGMA",
+    "slug": "nativewind-sigma-sdk57",
+    "scheme": "nativewindsigma",
+    "userInterfaceStyle": "automatic",
+    "plugins": ["expo-router"]
+  }
+}
