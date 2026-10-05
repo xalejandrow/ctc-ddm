@@ -16,8 +16,8 @@ export default function InicioScreen() {
       <SafeAreaProvider className="flex-1 bg-slate-100">
       {/* <SafeAreaView className="flex-1 bg-slate-100"> */}
         <View className="flex-1 p-6 justify-center">
-          <Text className="text-sky-700 text-sm font-bold tracking-widest">SIGMA · NATIVEWIND</Text>
-          <Text className= "bg-yellow-50 text-gray-200 text-sm font-bold tracking-widest">SIGMA · NATIVEWIND</Text>
+          <Text className="text-sky-700 text-sm font-bold tracking-widest">SIGMA · NATIVEWIND v1</Text>
+          <Text className= "bg-white-100 text-red-100 text-sm font-bold tracking-widest">SIGMA · NATIVEWIND v2</Text>
           <Text className="mt-2 text-3xl font-bold text-slate-900">Orden de trabajo</Text>
           <Text className="mt-2 text-base leading-6 text-slate-600">Ejemplo básico de estilos mediante className.</Text>
 
