@@ -1,0 +1,8 @@
+{
+  "expo": {
+    "name": "SIGMA API",
+    "slug": "sigma-tareas-api",
+    "plugins": ["expo-router"],
+    "scheme": "sigma-api"
+  }
+}
