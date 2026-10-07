@@ -78,7 +78,7 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#F6F8FB", padding: 24, gap: 18 },
+  container: { flex: 1, backgroundColor: "#F6F8FB", padding: 24, gap: 18, paddingTop: 20 },
   title: { fontSize: 28, fontWeight: "700", color: "#17365D" },
   subtitle: { fontSize: 16, color: "#52616B" },
   card: {
