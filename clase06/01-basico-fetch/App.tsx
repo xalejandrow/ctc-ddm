@@ -16,7 +16,8 @@ type Todo = {
   userId: number;
 };
 
-const URL = "https://jsonplaceholder.typicode.com/todos/1";
+const URL = "https://jsonplaceholder.typicode.com/";
+// const URL = "https://jsonplaceholder.typicode.com/todos/1";
 
 export default function App() {
   const [todo, setTodo] = useState<Todo | null>(null);
@@ -28,7 +29,7 @@ export default function App() {
       setLoading(true);
       setError(null);
 
-      const response = await fetch(URL);
+      const response = await fetch(URL+"todos/1");
       if (!response.ok) {
         throw new Error(`El servidor respondió con ${response.status}`);
       }
