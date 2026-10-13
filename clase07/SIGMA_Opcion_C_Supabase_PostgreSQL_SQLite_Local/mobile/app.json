@@ -1,0 +1,9 @@
+{
+  "expo": {
+    "name": "SIGMA Supabase Offline",
+    "slug": "sigma-supabase-offline",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "plugins": ["expo-sqlite"]
+  }
+}
