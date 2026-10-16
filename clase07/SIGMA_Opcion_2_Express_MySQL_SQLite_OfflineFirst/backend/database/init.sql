@@ -1,0 +1,14 @@
+CREATE TABLE IF NOT EXISTS tasks (
+  id CHAR(36) PRIMARY KEY,
+  title VARCHAR(160) NOT NULL,
+  status ENUM('PENDIENTE', 'FINALIZADA') NOT NULL DEFAULT 'PENDIENTE',
+  updated_at DATETIME(3) NOT NULL,
+  deleted_at DATETIME(3) NULL,
+  created_at DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3)
+);
+
+INSERT INTO tasks (id, title, status, updated_at)
+VALUES
+  ('11111111-1111-4111-8111-111111111111', 'Revisar impresora del laboratorio', 'PENDIENTE', NOW(3)),
+  ('22222222-2222-4222-8222-222222222222', 'Actualizar inventario de routers', 'FINALIZADA', NOW(3))
+ON DUPLICATE KEY UPDATE title = VALUES(title);

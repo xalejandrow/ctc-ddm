@@ -1,0 +1,40 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: sigma-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: sigma
+      MYSQL_USER: sigma
+      MYSQL_PASSWORD: sigma
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - '3307:3306'
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./backend/database/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost', '-proot']
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  backend:
+    build: ./backend
+    container_name: sigma-express-api
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      PORT: 4000
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_NAME: sigma
+      DB_USER: sigma
+      DB_PASSWORD: sigma
+    ports:
+      - '4000:4000'
+
+volumes:
+  mysql_data:
