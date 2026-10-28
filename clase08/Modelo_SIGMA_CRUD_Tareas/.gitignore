@@ -1,0 +1,4 @@
+node_modules/
+.expo/
+.env
+mysql_crud_data/

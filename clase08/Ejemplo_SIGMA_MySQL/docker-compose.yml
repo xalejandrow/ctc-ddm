@@ -1,0 +1,18 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: sigma_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: sigma_db
+      MYSQL_USER: sigma_user
+      MYSQL_PASSWORD: sigma_password
+      MYSQL_ROOT_PASSWORD: root_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./backend/database/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+
+volumes:
+  mysql_data:
