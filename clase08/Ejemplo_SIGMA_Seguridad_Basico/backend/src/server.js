@@ -32,7 +32,7 @@ const tasks = [
   { id: 1, title: "Revisar impresora", assignedTo: 1, status: "ABIERTA" },
   {
     id: 2,
-    title: "Actualizar inventario",
+    title: "Actualizar inventario de PCs",
     assignedTo: null,
     status: "ABIERTA",
   },

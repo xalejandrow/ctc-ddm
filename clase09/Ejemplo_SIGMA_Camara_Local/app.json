@@ -1,0 +1,25 @@
+{
+  "expo": {
+    "name": "SIGMA Cámara Local",
+    "slug": "sigma-camara-local",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "SIGMA necesita usar la cámara para registrar evidencia fotográfica de una tarea."
+        }
+      ]
+    ],
+    "android": {
+      "permissions": ["android.permission.CAMERA"]
+    },
+    "ios": {
+      "infoPlist": {
+        "NSCameraUsageDescription": "SIGMA necesita usar la cámara para registrar evidencia fotográfica de una tarea."
+      }
+    }
+  }
+}
