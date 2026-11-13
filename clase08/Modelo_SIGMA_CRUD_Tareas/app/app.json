@@ -1,1 +1,8 @@
-{ "expo": { "name": "SIGMA CRUD Tareas", "slug": "sigma-crud-tareas", "version": "1.0.0", "orientation": "portrait" } }
+{
+  "expo": {
+    "name": "SIGMA CRUD Tareas",
+    "slug": "sigma-crud-tareas",
+    "version": "1.0.0",
+    "orientation": "portrait"
+  }
+}

@@ -5,6 +5,13 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
-    "plugins": [["expo-camera", { "cameraPermission": "SIGMA necesita acceder a la cámara para registrar evidencias de las tareas." }]]
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "SIGMA necesita acceder a la cámara para registrar evidencias de las tareas."
+        }
+      ]
+    ]
   }
 }
